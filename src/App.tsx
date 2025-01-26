@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
-import { showToast } from './showToast';
-import { getData } from './api';
+// import { useEffect } from 'react';
+// import { showToast } from './showToast';
+// import { getData } from './api';
+import { getRouteApi } from '@tanstack/react-router';
 
-function App() {
-
-
+const App = () => {
   // ⚠️ Fetching data using useEffect
   // uncomment this to see my desired result
 
@@ -21,11 +20,14 @@ function App() {
   //   fetch();
   // }, []);
 
+  const routeApi = getRouteApi('/');
+  const data = routeApi.useLoaderData();
+
   return (
     <>
-      <h1>Child component</h1>
+      <h1>Child component {data}</h1>
     </>
   );
-}
+};
 
 export default App;

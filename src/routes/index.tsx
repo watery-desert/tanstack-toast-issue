@@ -6,22 +6,23 @@ import { showToast } from '../showToast';
 export const Route = createFileRoute('/')({
   component: RouteComponent,
   loader: async () => {
-    await getData();
+    return await getData();
 
-    // ⚠️ here if I use try catch Then I am able 
+    // ⚠️ here if I use try catch Then I am able
     // showToast without any console error.
 
     // try {
-    //   await getData();
+    //   return await getData();
     // } catch (error) {
-    //   showToast(error.message);
+    //   const err = error as Error;
+    //   showToast(err);
     // }
   },
   errorComponent: () => {
     return <h1>Error</h1>;
   },
   onCatch: (error) => {
-    showToast(error.message);
+    showToast(error);
   },
 });
 
