@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <>
-      <h1>Child component {data}</h1>
+      <h1>Data from API {data}</h1>
     </>
   );
 };

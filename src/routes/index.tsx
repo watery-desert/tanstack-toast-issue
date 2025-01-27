@@ -6,7 +6,7 @@ import { showToast } from '../showToast';
 export const Route = createFileRoute('/')({
   component: RouteComponent,
   loader: async () => {
-    return await getData();
+    return await getData(false);
 
     // ⚠️ here if I use try catch Then I am able
     // showToast without any console error.
@@ -20,6 +20,9 @@ export const Route = createFileRoute('/')({
   },
   errorComponent: () => {
     return <h1>Error</h1>;
+  },
+  pendingComponent: () => {
+    return <h1>Loading...</h1>;
   },
   onCatch: (error) => {
     showToast(error);
