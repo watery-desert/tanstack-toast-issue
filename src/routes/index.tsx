@@ -12,7 +12,7 @@ export const Route = createFileRoute('/')({
     // showToast without any console error.
 
     // try {
-    //   return await getData();
+    //   return await getData(false);
     // } catch (error) {
     //   const err = error as Error;
     //   showToast(err);
